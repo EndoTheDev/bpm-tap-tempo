@@ -4,7 +4,7 @@ import "./globals.css";
 
 // umami analytics - the shared endothe.dev tools website id, from commit one
 export const metadata: Metadata = {
-  title: "BPM Tap Tempo - find the tempo, see the transitions",
+  title: "Check BPM - tap tempo counter, see the transitions",
   description:
     "Tap to find a track's BPM, then see every transition option: half, double, dotted eighth and the pitch ride range. For DJs mixing across genres.",
 };

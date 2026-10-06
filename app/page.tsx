@@ -67,7 +67,7 @@ export default function Page() {
     <TooltipProvider delayDuration={120}>
       <div className="mx-auto flex min-h-screen max-w-3xl flex-col px-4">
         <header className="flex items-center justify-between pt-6">
-          <h1 className="text-2xl font-extrabold">bpm tap tempo</h1>
+          <h1 className="text-2xl font-extrabold">check bpm</h1>
           <ThemeButton />
         </header>
 

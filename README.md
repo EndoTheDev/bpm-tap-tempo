@@ -1,9 +1,9 @@
-# bpm-tap-tempo
+# check-bpm
 
 Tap to find a track's BPM, then see every transition option: half, double,
 dotted eighth, the advanced pivot ratios, and the pitch-ride range.
 
-Live at [endothe.dev/tools/bpm-tap-tempo](https://endothe.dev/tools/bpm-tap-tempo).
+Live at [endothe.dev/tools/check-bpm](https://endothe.dev/tools/check-bpm).
 
 - Next.js 15 App Router + vendored shadcn/ui components (Button, Card, Input, Tooltip)
 - Flat 8-tap window, median-trimmed, 3s auto-reset, spacebar support
