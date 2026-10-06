@@ -1,46 +1,47 @@
 @import "tailwindcss";
 
-/* bpm tap tempo - same family as the camelot wheel: dark-first, amber accent.
-   tailwind v4 inline theme. CSS vars are the shadcn names so the vendored
-   components style themselves. */
+/* bpm tap tempo - teal "console" skin. Deliberately different from the
+   camelot wheel's cream/amber: cold cyan accent, blue-tinted dark mode,
+   sharp corners (rounded-none / rounded-sm) everywhere. CSS vars are the
+   shadcn names so the vendored components style themselves. */
 :root {
-  --background: #faf7f0;
-  --foreground: #171512;
-  --card: #f3efe5;
-  --card-foreground: #171512;
-  --primary: #b87d0a;
-  --primary-foreground: #faf7f0;
-  --secondary: #e7e1d3;
-  --secondary-foreground: #171512;
-  --muted: #6b675c;
-  --muted-foreground: #6b675c;
-  --accent: #efe8d8;
-  --accent-foreground: #171512;
+  --background: #f4f7f7;
+  --foreground: #101c1e;
+  --card: #e9f0ef;
+  --card-foreground: #101c1e;
+  --primary: #0f766e;
+  --primary-foreground: #f4f7f7;
+  --secondary: #d8e4e3;
+  --secondary-foreground: #101c1e;
+  --muted: #5f7473;
+  --muted-foreground: #5f7473;
+  --accent: #dcebe9;
+  --accent-foreground: #101c1e;
   --destructive: #b3261e;
-  --destructive-foreground: #faf7f0;
-  --border: #d8d1c0;
-  --input: #d8d1c0;
-  --ring: #b87d0a;
+  --destructive-foreground: #f4f7f7;
+  --border: #c4d4d2;
+  --input: #c4d4d2;
+  --ring: #0f766e;
 }
 
 .dark {
-  --background: #0a0a0c;
-  --foreground: #f5f2ea;
-  --card: #121216;
-  --card-foreground: #f5f2ea;
-  --primary: #f0b429;
-  --primary-foreground: #0a0a0c;
-  --secondary: #1d1d23;
-  --secondary-foreground: #f5f2ea;
-  --muted: #8a8577;
-  --muted-foreground: #8a8577;
-  --accent: #1d1d23;
-  --accent-foreground: #f5f2ea;
+  --background: #060e10;
+  --foreground: #e3f0ee;
+  --card: #0c1a1d;
+  --card-foreground: #e3f0ee;
+  --primary: #2dd4bf;
+  --primary-foreground: #060e10;
+  --secondary: #122226;
+  --secondary-foreground: #e3f0ee;
+  --muted: #739695;
+  --muted-foreground: #739695;
+  --accent: #122226;
+  --accent-foreground: #e3f0ee;
   --destructive: #ef4444;
-  --destructive-foreground: #0a0a0c;
-  --border: #2a2a32;
-  --input: #2a2a32;
-  --ring: #f0b429;
+  --destructive-foreground: #060e10;
+  --border: #1d3338;
+  --input: #1d3338;
+  --ring: #2dd4bf;
 }
 
 @theme inline {

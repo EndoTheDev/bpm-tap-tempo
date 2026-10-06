@@ -53,7 +53,7 @@ export function ThemeButton() {
     <button
       aria-label={`switch to ${next} mode`}
       onClick={onClick}
-      className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground hover:text-primary"
+      className="rounded-none border border-border px-3 py-1 text-xs text-muted-foreground hover:text-primary"
     >
       {pref === "light" ? "light" : pref === "dark" ? "dark" : "system"}
     </button>

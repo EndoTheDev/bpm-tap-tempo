@@ -76,7 +76,7 @@ export default function Page() {
           <div className="flex flex-col items-center gap-3">
             <button
               onClick={tap}
-              className={`flex size-44 items-center justify-center rounded-full border-4 border-primary bg-primary/10 text-xl font-extrabold tracking-wider text-primary transition-transform select-none active:scale-95 ${pulse ? "scale-95 bg-primary/25" : ""}`}
+              className={`flex size-44 items-center justify-center rounded-lg border-4 border-primary bg-primary/10 text-xl font-extrabold tracking-wider text-primary transition-transform select-none active:scale-95 ${pulse ? "scale-95 bg-primary/25" : ""}`}
               aria-label="tap to the beat"
             >
               TAP
@@ -141,7 +141,7 @@ export default function Page() {
                 key={r.id}
                 title={r.hint}
                 onClick={() => toggleAdvanced(r.id)}
-                className={`bpm-mono rounded-full border px-3 py-1 text-xs ${advanced.has(r.id) ? "border-primary text-primary" : "border-border text-muted-foreground"}`}
+                className={`bpm-mono rounded-sm border px-3 py-1 text-xs ${advanced.has(r.id) ? "border-primary text-primary" : "border-border text-muted-foreground"}`}
               >
                 {r.label}
               </button>
