@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
-// umami analytics - the shared endothe.dev tools website id, from commit one
+// umami analytics - this tool's own entry (4a67333b), separate from the other tools
 export const metadata: Metadata = {
   title: "Check BPM - tap tempo counter, see the transitions",
   description:
@@ -13,11 +13,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* umami analytics - shared tools website id, from commit one */}
+        {/* umami analytics - this tool's own entry (4a67333b) */}
         <script
           defer
           src="https://umami.endothe.dev/script.js"
-          data-website-id="1edac4e0-e48a-46d3-8274-1a756e5a337c"
+          data-website-id="4a67333b-3399-4f49-b1af-407385ad3a86"
         />
       </head>
       <body>
