@@ -1,0 +1,12 @@
+# build output
+.next
+out
+dist
+
+# deps
+node_modules
+
+# misc
+.DS_Store
+*.log
+.env
