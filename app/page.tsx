@@ -71,12 +71,12 @@ export default function Page() {
           <ThemeButton />
         </header>
 
-        <main className="flex flex-1 flex-col items-center gap-8 py-8">
+        <main className="flex flex-1 flex-col items-center gap-6 py-6">
           {/* the tap button - the hero */}
           <div className="flex flex-col items-center gap-3">
             <button
               onClick={tap}
-              className={`flex size-44 items-center justify-center rounded-lg border-4 border-primary bg-primary/10 text-xl font-extrabold tracking-wider text-primary transition-transform select-none active:scale-95 ${pulse ? "scale-95 bg-primary/25" : ""}`}
+              className={`flex size-32 items-center justify-center rounded-lg border-4 border-primary bg-primary/10 text-lg font-extrabold tracking-wider text-primary transition-transform select-none active:scale-95 sm:size-44 sm:text-xl ${pulse ? "scale-95 bg-primary/25" : ""}`}
               aria-label="tap to the beat"
             >
               TAP
@@ -85,7 +85,7 @@ export default function Page() {
 
             {/* readout */}
             <div className="bpm-mono flex items-baseline gap-3">
-              <span className="text-5xl font-extrabold text-primary tabular-nums">
+              <span className="text-4xl font-extrabold text-primary tabular-nums sm:text-5xl">
                 {effectiveBpm ?? "--"}
               </span>
               <span className="text-sm text-muted-foreground">
@@ -164,24 +164,27 @@ export default function Page() {
             </div>
           )}
 
-          {/* crawlable explainer */}
-          <section className="w-full max-w-xl space-y-3 pt-4 text-sm leading-relaxed text-muted-foreground">
-            <p>
-              half and double time are the cross-genre bridge: a 174 bpm drum and bass
-              track and an 87 bpm hip-hop track share the same kick grid - every other
-              dnb kick lands on the hip-hop beat. the same math pairs 70 bpm trap with
-              140 bpm dubstep.
-            </p>
-            <p>
-              the dotted eighth (x3/4) is the subtler pivot: 129 house into 97 material
-              feels related without a big jump, and the pros ride 4/3 (129 to 172) to
-              cross from house into drum and bass.
-            </p>
-            <p>
-              tempo math is a guide, not a rulebook. phrase alignment and your ears
-              are the final judge.
-            </p>
-          </section>
+          {/* crawlable explainer - collapsed by default on mobile so the footer fits */}
+          <details className="w-full max-w-xl text-sm leading-relaxed text-muted-foreground">
+            <summary className="cursor-pointer select-none pt-2 text-xs text-muted-foreground hover:text-primary">how the transition math works</summary>
+            <div className="space-y-3 pt-3">
+              <p>
+                half and double time are the cross-genre bridge: a 174 bpm drum and bass
+                track and an 87 bpm hip-hop track share the same kick grid - every other
+                dnb kick lands on the hip-hop beat. the same math pairs 70 bpm trap with
+                140 bpm dubstep.
+              </p>
+              <p>
+                the dotted eighth (x3/4) is the subtler pivot: 129 house into 97 material
+                feels related without a big jump, and the pros ride 4/3 (129 to 172) to
+                cross from house into drum and bass.
+              </p>
+              <p>
+                tempo math is a guide, not a rulebook. phrase alignment and your ears
+                are the final judge.
+              </p>
+            </div>
+          </details>
         </main>
 
         <footer className="mt-auto flex flex-col items-center gap-1 pb-8 text-center text-xs text-muted-foreground">
