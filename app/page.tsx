@@ -31,11 +31,15 @@ export default function Page() {
     const intervals = intervalsFromTimes(timesRef.current).slice(-WINDOW);
     setState(analyze(intervals));
     if (resetTimer.current) clearTimeout(resetTimer.current);
-    resetTimer.current = setTimeout(() => {
-      timesRef.current = [];
-      setState({ bpm: null, taps: 0, jitter: 0 });
-    }, 4000);
   }, []);
+
+  // last BPM stays until explicit clear or a fresh tap session — no auto-wipe.
+  function clearAll() {
+    if (resetTimer.current) clearTimeout(resetTimer.current);
+    timesRef.current = [];
+    setState({ bpm: null, taps: 0, jitter: 0 });
+    setManual("");
+  }
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -77,7 +81,7 @@ export default function Page() {
             >
               TAP
             </button>
-            <p className="text-xs text-muted-foreground">tap to the beat, or hit spacebar. resets after 3 quiet seconds.</p>
+            <p className="text-xs text-muted-foreground">tap to the beat, or hit spacebar. a new session starts when you tap again after a pause.</p>
 
             {/* readout */}
             <div className="bpm-mono flex items-baseline gap-3">
@@ -87,6 +91,11 @@ export default function Page() {
               <span className="text-sm text-muted-foreground">
                 bpm {state.taps > 0 && !manual && `· ${state.taps} taps · ${Math.round(state.jitter * 100)}% steady`}
               </span>
+              {(state.bpm !== null || manual) && (
+                <Button variant="ghost" size="sm" onClick={clearAll} aria-label="reset bpm">
+                  reset
+                </Button>
+              )}
             </div>
 
             {/* manual entry (Q21) */}
