@@ -1,15 +1,20 @@
 services:
-  bpm-tap-tempo:
-    container_name: tools-bpm-tap
+  check-bpm:
+    container_name: tools-check-bpm
     build: .
-    image: ghcr.io/endothedev/bpm-tap-tempo:latest
+    image: ghcr.io/endothedev/check-bpm:latest
     labels:
       - "traefik.enable=true"
       # XOR rule: basePath is set in next.config, so NO strip-prefix here.
       # stripping while the app expects its prefix = the redirect loop we
       # already fixed once on camelot-wheel.
       - "traefik.http.routers.tools-bpm.rule=Host(`endothe.dev`) && PathPrefix(`/tools/check-bpm`)"
-      - "traefik.http.services.tools-bpm-tap.loadbalancer.server.port=3000"
+      # old /tools/bpm-tap-tempo path -> 308 to the canonical /tools/check-bpm
+      - "traefik.http.routers.tools-bpm-old.rule=Host(`endothe.dev`) && PathPrefix(`/tools/bpm-tap-tempo`)"
+      - "traefik.http.routers.tools-bpm-old.middlewares=redirect-bpm-old"
+      - "traefik.http.middlewares.redirect-bpm-old.redirectregex.regex=^https://(.*)/tools/bpm-tap-tempo(.*)$$"
+      - "traefik.http.middlewares.redirect-bpm-old.redirectregex.replacement=https://$$1/tools/check-bpm$$2"
+      - "traefik.http.services.tools-check-bpm.loadbalancer.server.port=3000"
     networks:
       - services
     restart: unless-stopped
